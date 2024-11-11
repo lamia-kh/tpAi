@@ -1,5 +1,4 @@
 
-%1-element(X, L) is true if X is an element of the list L
 % 1- element(X, L) is true if X is an element of the list L
 element(X, [X|_]).
 element(X, [_|T]) :-
@@ -14,7 +13,7 @@ last(E, [E]).
 last(E, [_|T]) :-
     last(E, T).
 
-%4 Base case: E is the penultimate element if L has exactly two elements
+% 4 Base case: E is the penultimate element if L has exactly two elements
 penultimate(E, [E, _]).
 % Recursive case: Check the penultimate element in the tail
 penultimate(E, [_|T]) :-
@@ -32,18 +31,20 @@ del_k(X, [H|T], K, [H|R]) :-
 % 6-length(L, N) is true if N is the length of the list L
 lngth([], 0).
 lngth([_|T], N) :-
-    length(T, N1),
+    lngth(T, N1),
     N is N1 + 1.
 
 % 7-even(L) is true if L has an even number of elements
 even(L) :-
     length(L, N),
     N mod 2 =:= 0.
+    
 % 8-concat(L1, L2, L3) is true if L3 is the result of concatenating L1
 %  and L2
 concat([], L, L).
 concat([H|T], L, [H|R]) :-
     concat(T, L, R).
+    
 % 9- palindrome(L) is true if L is its own reversed image
 palindrome(L) :-
     reverse(L, L).
